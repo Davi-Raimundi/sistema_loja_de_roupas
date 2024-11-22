@@ -1,0 +1,46 @@
+create database if not exists loja_de_roupas;
+use loja_de_roupas;
+
+create table if not exists Categoria (
+id_categoria int auto_increment primary key,
+nome varchar(100) not null
+);
+
+create table if not exists Produto (
+id_produto int auto_increment primary key,
+nome_produto varchar(100),
+tamanho varchar(5),
+cor varchar(30),
+preco decimal (10, 2),
+estoque int
+);
+
+create table Clientes (
+id_cliente int auto_increment primary key,
+nome_cliente varchar(100),
+email varchar(100),
+telefone varchar(15),
+endereco varchar (225)
+);
+
+create table Vendas (
+id_vendas int auto_increment primary key,
+id_cliente int,
+data_venda datetime,
+valor_total decimal(10, 2)
+);
+
+create table Itens_Venda (
+id_item int auto_increment primary key,
+id_venda int,
+id_produto int,
+quantidade int,
+preco_unitario decimal(10, 2)
+);
+
+create table Fornecedores (
+id_fornecedor int auto_increment primary key,
+nome_fornecedor varchar(100),
+telefone_fornecedor varchar(15),
+endereco_fornecedor varchar(225)
+);
